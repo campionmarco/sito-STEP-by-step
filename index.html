@@ -8,18 +8,25 @@
       content="Step by Step ASD - Scuola di danza a Rovigo. Corsi per adulti, bambini e disabilità. Be Yourself."
     />
     <title>Step by Step ASD | Scuola di Danza Rovigo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header id="header">
       <nav id="navbar">
         <div class="logo">
-          <img src="img/logo.png" alt="Step by Step ASD" />
+          <img src="assets/loghi/logo-step-by-step.png" alt="Step by Step ASD" />
         </div>
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#chi-siamo">Chi Siamo</a></li>
           <li><a href="#corsi">Corsi</a></li>
+          <li><a href="#orari">Orari</a></li>
           <li><a href="#recensioni">Dicono di Noi</a></li>
           <li><a href="#impegno">Il Nostro Impegno</a></li>
           <li><a href="#contatti">Contatti</a></li>
@@ -30,8 +37,9 @@
 
     <section id="home" class="hero">
       <div class="hero-content">
-        <h1>Step by Step ASD</h1>
-        <p class="claim">Be Yourself</p>
+        <img src="assets/loghi/logo-step-by-step.png" alt="Step by Step ASD" />
+        <!--<h1>Step by Step ASD</h1>
+        <p class="claim">Be Yourself</p>-->
         <p class="hero-text">
           Scuola di danza nel cuore di Rovigo — un percorso su misura per ogni
           età e ogni esigenza
@@ -63,120 +71,322 @@
       <p class="sottotitolo">Un percorso pensato per ogni esigenza</p>
 
       <div class="corsi-grid">
-        <div class="corso-card">
-          <h3>Balla&Snella</h3>
-          <p class="corso-sub">Dimagrire Ballando</p>
-          <p>
-            Percorso esclusivo dedicato alle donne che desiderano ritrovare la
-            forma fisica divertendosi, favorendo socializzazione e benessere.
-          </p>
-          <a
-            href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Balla%26Snella"
-            class="btn-small"
-            >Info su WhatsApp</a
+        <article class="corso-accordion" id="corso-divas-dance" data-corso="divas-dance">
+          <button
+            type="button"
+            class="corso-accordion-trigger"
+            aria-expanded="false"
+            aria-controls="panel-divas-dance"
           >
-        </div>
+            <span class="corso-accordion-header">
+              <span class="corso-accordion-titles">
+                <h3>Diva's Dance</h3>
+                <p class="corso-sub">La tua essenza, la tua danza</p>
+              </span>
+              <span class="corso-accordion-icon" aria-hidden="true"></span>
+            </span>
+          </button>
+          <div
+            class="corso-accordion-panel"
+            id="panel-divas-dance"
+            role="region"
+          >
+            <p>
+              Corso interamente al femminile per esplorare espressività,
+              eleganza e sensualità attraverso lo studio della postura e
+              coreografie dedicate.
+            </p>
+            <figure class="corso-locandina">
+              <img
+                src="assets/locandine/divas-dance.png"
+                alt="Locandina Diva's Dance"
+                loading="lazy"
+              />
+            </figure>
+            <div class="corso-orari-dettaglio">
+              <h4>Orari</h4>
+              <ul>
+                <li>Lunedì e Mercoledì — 18:00–19:00</li>
+                <li>Martedì — 19:45–20:45</li>
+              </ul>
+            </div>
+            <a
+              href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Diva's%20Dance"
+              class="btn-small"
+              >Info su WhatsApp</a
+            >
+          </div>
+        </article>
 
-        <div class="corso-card">
-          <h3>Diva's Dance</h3>
-          <p class="corso-sub">La tua essenza, la tua danza</p>
-          <p>
-            Corso interamente al femminile per esplorare espressività, eleganza
-            e sensualità attraverso lo studio della postura e coreografie
-            dedicate.
-          </p>
-          <a
-            href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Diva's%20Dance"
-            class="btn-small"
-            >Info su WhatsApp</a
+        <article class="corso-accordion" id="corso-sit-fit-gym" data-corso="sit-fit-gym">
+          <button
+            type="button"
+            class="corso-accordion-trigger"
+            aria-expanded="false"
+            aria-controls="panel-sit-fit-gym"
           >
-        </div>
+            <span class="corso-accordion-header">
+              <span class="corso-accordion-titles">
+                <h3>Sit Fit Gym</h3>
+                <p class="corso-sub">Energia e divertimento in leggerezza</p>
+              </span>
+              <span class="corso-accordion-icon" aria-hidden="true"></span>
+            </span>
+          </button>
+          <div
+            class="corso-accordion-panel"
+            id="panel-sit-fit-gym"
+            role="region"
+          >
+            <p>
+              Rinforzo muscolare dolce con l'aiuto della sedia, per proteggere
+              schiena e articolazioni. Ideale anche per chi è fuori allenamento.
+            </p>
+            <figure class="corso-locandina">
+              <img
+                src="assets/locandine/sit-fit-gym.png"
+                alt="Locandina Sit Fit Gym"
+                loading="lazy"
+              />
+            </figure>
+            <div class="corso-orari-dettaglio">
+              <h4>Orari</h4>
+              <ul>
+                <li>Lunedì e Mercoledì — 17:00–17:45</li>
+              </ul>
+            </div>
+            <a
+              href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Sit%20Fit%20Gym"
+              class="btn-small"
+              >Info su WhatsApp</a
+            >
+          </div>
+        </article>
 
-        <div class="corso-card">
-          <h3>Sit Fit Gym</h3>
-          <p class="corso-sub">Energia e divertimento in leggerezza</p>
-          <p>
-            Rinforzo muscolare dolce con l'aiuto della sedia, per proteggere
-            schiena e articolazioni. Ideale anche per chi è fuori allenamento.
-          </p>
-          <a
-            href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Sit%20Fit%20Gym"
-            class="btn-small"
-            >Info su WhatsApp</a
+        <article class="corso-accordion corso-card-novita" id="corso-dance-4-all" data-corso="dance-4-all">
+          <span class="badge badge-novita">NOVITÀ</span>
+          <button
+            type="button"
+            class="corso-accordion-trigger"
+            aria-expanded="false"
+            aria-controls="panel-dance-4-all"
           >
-        </div>
+            <span class="corso-accordion-header">
+              <span class="corso-accordion-titles">
+                <h3>Dance 4 All</h3>
+                <p class="corso-sub">Scopri il tuo stile</p>
+              </span>
+              <span class="corso-accordion-icon" aria-hidden="true"></span>
+            </span>
+          </button>
+          <div
+            class="corso-accordion-panel"
+            id="panel-dance-4-all"
+            role="region"
+          >
+            <p>
+              Salsa, bachata, reggaeton e molto altro. Anche senza partner, per
+              tutte le età e livelli.
+            </p>
+            <figure class="corso-locandina">
+              <img
+                src="assets/locandine/dance-4-all.png"
+                alt="Locandina Dance 4 All"
+                loading="lazy"
+              />
+            </figure>
+            <a
+              href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Dance%204%20All"
+              class="btn-small"
+              >Info su WhatsApp</a
+            >
+          </div>
+        </article>
 
-        <div class="corso-card">
-          <h3>Dance 4 All</h3>
-          <p class="corso-sub">Scopri il tuo stile</p>
-          <p>
-            Salsa, bachata, reggaeton e molto altro. Anche senza partner, per
-            tutte le età e livelli.
-          </p>
-          <a
-            href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Dance%204%20All"
-            class="btn-small"
-            >Info su WhatsApp</a
+        <article class="corso-accordion" id="corso-dance-4-you" data-corso="dance-4-you">
+          <button
+            type="button"
+            class="corso-accordion-trigger"
+            aria-expanded="false"
+            aria-controls="panel-dance-4-you"
           >
-        </div>
+            <span class="corso-accordion-header">
+              <span class="corso-accordion-titles">
+                <h3>Dance 4 You</h3>
+                <p class="corso-sub">Propedeutica alla danza classica</p>
+              </span>
+              <span class="corso-accordion-icon" aria-hidden="true"></span>
+            </span>
+          </button>
+          <div
+            class="corso-accordion-panel"
+            id="panel-dance-4-you"
+            role="region"
+          >
+            <p>Propedeutica alla danza classica per bambini e ragazzi:</p>
+            <ul class="corso-livelli">
+              <li>
+                <strong>I livello (5-8 anni):</strong> avvicinamento alla danza
+                classica, ritmo, coordinazione e postura
+              </li>
+              <li>
+                <strong>II livello (9-12 anni):</strong> primi studi di danza
+                classica
+              </li>
+            </ul>
+            <p class="corso-maestra"><strong>Maestra:</strong> Chiara Di Pinto</p>
+            <figure class="corso-locandina">
+              <img
+                src="assets/locandine/dance-4-you.png"
+                alt="Locandina Dance 4 You"
+                loading="lazy"
+              />
+            </figure>
+            <div class="corso-orari-dettaglio">
+              <h4>Orari</h4>
+              <ul>
+                <li>Martedì — 16:00–17:10</li>
+              </ul>
+            </div>
+            <a
+              href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Dance%204%20You"
+              class="btn-small"
+              >Info su WhatsApp</a
+            >
+          </div>
+        </article>
 
-        <div class="corso-card">
-          <h3>Dance 4 You</h3>
-          <p class="corso-sub">Propedeutica alla danza classica</p>
-          <p>
-            I livello (5-8 anni) e II livello - primi studi di danza classica
-            (9-12 anni).
-          </p>
-          <a
-            href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Dance%204%20You"
-            class="btn-small"
-            >Info su WhatsApp</a
+        <article class="corso-accordion corso-in-arrivo" id="corso-you-and-me" data-corso="you-and-me">
+          <span class="badge badge-arrivo">IN ARRIVO</span>
+          <button
+            type="button"
+            class="corso-accordion-trigger"
+            aria-expanded="false"
+            aria-controls="panel-you-and-me"
           >
-        </div>
-
-        <div class="corso-card">
-          <h3>Danza Propedeutica</h3>
-          <p class="corso-sub">Per bambini e ragazzi</p>
-          <p>
-            Percorso di avvicinamento alla danza classica per elementari e
-            medie, tra ritmo, coordinazione e postura.
-          </p>
-          <a
-            href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sulla%20Danza%20Propedeutica"
-            class="btn-small"
-            >Info su WhatsApp</a
+            <span class="corso-accordion-header">
+              <span class="corso-accordion-titles">
+                <h3>You and Me</h3>
+                <p class="corso-sub">Mamma e bambino/a insieme</p>
+              </span>
+              <span class="corso-accordion-icon" aria-hidden="true"></span>
+            </span>
+          </button>
+          <div
+            class="corso-accordion-panel"
+            id="panel-you-and-me"
+            role="region"
           >
-        </div>
-
-        <div class="corso-card">
-          <h3>You and Me</h3>
-          <p class="corso-sub">Mamma e bambino/a insieme</p>
-          <p>
-            Un'ora settimanale di tempo di qualità tra mamma e figlio/a (3-10
-            anni), tra gioco guidato, musica ed espressività.
-          </p>
-          <a
-            href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20You%20and%20Me"
-            class="btn-small"
-            >Info su WhatsApp</a
-          >
-        </div>
-
-        <div class="corso-card">
-          <h3>Danza e Benessere</h3>
-          <p class="corso-sub">Per la disabilità</p>
-          <p>
-            Collaboriamo con le strutture del territorio per incontri di danza
-            dedicati a potenziamento, coordinazione e socializzazione.
-          </p>
-          <a
-            href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20su%20Danza%20e%20Benessere"
-            class="btn-small"
-            >Info su WhatsApp</a
-          >
-        </div>
+            <p>
+              Un'ora settimanale di tempo di qualità tra mamma e figlio/a (3-10
+              anni), tra gioco guidato, musica ed espressività.
+            </p>
+            <figure class="corso-locandina">
+              <!--<img
+                src="assets/locandine/you-and-me.png"
+                alt="Locandina You and Me"
+                loading="lazy"
+              />-->
+            </figure>
+            <div class="corso-orari-dettaglio">
+              <h4>Orari previsti</h4>
+              <ul>
+                <li>Giovedì — 16:00–17:00</li>
+              </ul>
+            </div>
+            <a
+              href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20You%20and%20Me"
+              class="btn-small"
+              >Info su WhatsApp</a
+            >
+          </div>
+        </article>
       </div>
 
+      
+    </section>
+
+    <section id="balla-snella" class="sezione-speciale">
+      <div class="sezione-speciale-inner">
+        <p class="sezione-speciale-nota">
+          Franchising ospitato presso Step by Step ASD
+        </p>
+        <img
+          src="assets/loghi/logo-balla-e-snella.png"
+          alt="Logo Balla&amp;Snella"
+          class="sezione-speciale-logo"
+        />
+        <article class="corso-accordion corso-accordion-speciale" id="corso-balla-snella" data-corso="balla-snella">
+          <button
+            type="button"
+            class="corso-accordion-trigger"
+            aria-expanded="false"
+            aria-controls="panel-balla-snella"
+          >
+            <span class="corso-accordion-header">
+              <span class="corso-accordion-titles">
+                <h3>Balla&amp;Snella</h3>
+                <p class="corso-sub">Dimagrire Ballando</p>
+              </span>
+              <span class="corso-accordion-icon" aria-hidden="true"></span>
+            </span>
+          </button>
+          <div
+            class="corso-accordion-panel"
+            id="panel-balla-snella"
+            role="region"
+          >
+            <p>
+              Percorso esclusivo dedicato alle donne che desiderano ritrovare la
+              forma fisica divertendosi, favorendo socializzazione e benessere.
+            </p>
+            <figure class="corso-locandina">
+              <!--<img
+                src="assets/locandine/balla-snella.png"
+                alt="Locandina Balla&amp;Snella"
+                loading="lazy"
+              />-->
+            </figure>
+            <div class="corso-orari-dettaglio">
+              <h4>Orari</h4>
+              <ul>
+                <li>Lunedì e Mercoledì — 19:15–20:15, 20:30–21:30</li>
+                <li>Martedì — 08:30–09:30, 17:15–18:15, 18:30–19:30</li>
+                <li>Giovedì — 08:30–09:30, 17:15–18:15, 18:30–19:30</li>
+              </ul>
+              <p class="corso-frequenza">Frequenza: 2 volte a settimana</p>
+            </div>
+            <a
+              href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Balla%26Snella"
+              class="btn-small"
+              >Info su WhatsApp</a
+            >
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="danza-benessere" class="sezione-speciale sezione-speciale-inclusione">
+      <div class="sezione-speciale-inner">
+        <p class="sezione-speciale-nota">
+          Progetto in collaborazione con le strutture del territorio 
+        </p>
+        <h3>Danza e Benessere</h3>
+        <p class="corso-sub">Per la disabilità</p>
+        <p>
+          Collaboriamo con le strutture del territorio per incontri di danza
+          dedicati a potenziamento, coordinazione e socializzazione, in un
+          percorso pensato per valorizzare le capacità di ogni partecipante.
+        </p>
+        <a
+          href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20su%20Danza%20e%20Benessere"
+          class="btn-small"
+          >Info su WhatsApp</a
+        >
+      </div>
+    </section>
+
+    <section id="perche-noi">
       <div class="perche-noi">
         <h3>Perché scegliere Step by Step?</h3>
         <ul>
@@ -196,6 +406,122 @@
             <strong>Sede accessibile in pieno centro</strong> — nel cuore di
             Rovigo, facile da raggiungere
           </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="orari" class="orari-section">
+      <h2>Orari Corsi</h2>
+      <p class="sottotitolo">
+        Programma settimanale — clicca su un corso per i dettagli
+      </p>
+
+      <div class="orari-grid">
+        <article class="orari-giorno-card">
+          <h3>Lunedì e Mercoledì</h3>
+          <ul class="orari-lista">
+            <li>
+              <a href="#corso-sit-fit-gym" class="orario-link" data-corso="sit-fit-gym">
+                <span class="orario-ora">17:00–17:45</span>
+                <span class="orario-nome">Sit Fit Gym</span>
+              </a>
+            </li>
+            <li>
+              <a href="#corso-divas-dance" class="orario-link" data-corso="divas-dance">
+                <span class="orario-ora">18:00–19:00</span>
+                <span class="orario-nome">Diva's Dance</span>
+              </a>
+            </li>
+            <li>
+              <a href="#corso-balla-snella" class="orario-link" data-corso="balla-snella">
+                <span class="orario-ora">19:15–20:15</span>
+                <span class="orario-nome">Balla&amp;Snella</span>
+              </a>
+            </li>
+            <li>
+              <a href="#corso-balla-snella" class="orario-link" data-corso="balla-snella">
+                <span class="orario-ora">20:30–21:30</span>
+                <span class="orario-nome">Balla&amp;Snella</span>
+              </a>
+            </li>
+          </ul>
+        </article>
+
+        <article class="orari-giorno-card">
+          <h3>Martedì</h3>
+          <ul class="orari-lista">
+            <li>
+              <a href="#corso-balla-snella" class="orario-link" data-corso="balla-snella">
+                <span class="orario-ora">08:30–09:30</span>
+                <span class="orario-nome">Balla&amp;Snella</span>
+              </a>
+            </li>
+            <li>
+              <a href="#corso-dance-4-you" class="orario-link" data-corso="dance-4-you">
+                <span class="orario-ora">16:00–17:10</span>
+                <span class="orario-nome">Dance 4 You</span>
+              </a>
+            </li>
+            <li>
+              <a href="#corso-balla-snella" class="orario-link" data-corso="balla-snella">
+                <span class="orario-ora">17:15–18:15</span>
+                <span class="orario-nome">Balla&amp;Snella</span>
+              </a>
+            </li>
+            <li>
+              <a href="#corso-balla-snella" class="orario-link" data-corso="balla-snella">
+                <span class="orario-ora">18:30–19:30</span>
+                <span class="orario-nome">Balla&amp;Snella</span>
+              </a>
+            </li>
+            <li>
+              <a href="#corso-divas-dance" class="orario-link" data-corso="divas-dance">
+                <span class="orario-ora">19:45–20:45</span>
+                <span class="orario-nome">Diva's Dance</span>
+              </a>
+            </li>
+          </ul>
+        </article>
+
+        <article class="orari-giorno-card">
+          <h3>Giovedì</h3>
+          <ul class="orari-lista">
+            <li>
+              <a href="#corso-balla-snella" class="orario-link" data-corso="balla-snella">
+                <span class="orario-ora">08:30–09:30</span>
+                <span class="orario-nome">Balla&amp;Snella</span>
+              </a>
+            </li>
+            <li>
+              <a href="#corso-you-and-me" class="orario-link" data-corso="you-and-me">
+                <span class="orario-ora">16:00–17:00</span>
+                <span class="orario-nome">You and Me</span>
+              </a>
+            </li>
+            <li>
+              <a href="#corso-balla-snella" class="orario-link" data-corso="balla-snella">
+                <span class="orario-ora">17:15–18:15</span>
+                <span class="orario-nome">Balla&amp;Snella</span>
+              </a>
+            </li>
+            <li>
+              <a href="#corso-balla-snella" class="orario-link" data-corso="balla-snella">
+                <span class="orario-ora">18:30–19:30</span>
+                <span class="orario-nome">Balla&amp;Snella</span>
+              </a>
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="orari-frequenza">
+        <h3>Frequenza corsi</h3>
+        <ul>
+          <li><strong>Balla&amp;Snella:</strong> 2 volte a settimana</li>
+          <li><strong>Diva's Dance:</strong> 1 volta a settimana</li>
+          <li><strong>Sit Fit Gym:</strong> 1 o 2 volte a settimana</li>
+          <li><strong>Dance 4 You:</strong> 1 volta a settimana</li>
+          <li><strong>You and Me:</strong> 1 volta a settimana</li>
         </ul>
       </div>
     </section>

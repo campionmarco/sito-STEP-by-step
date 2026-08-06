@@ -1,12 +1,23 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { font-family:'Poppins', Arial, sans-serif; color:#333; }
+body {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  color: #333;
+}
 
-:root {
+/*:root {
   --blu: #2E3A87;
   --magenta: #D91A5C;
   --verde: #7DB93E;
   --giallo: #F2B705;
+  --chiaro: #FDF7F9;
+}*/
+
+:root {
+  --blu: #494495;
+  --magenta: #D03460;
+  --verde: #86BC25;
+  --giallo: #F4C123;
   --chiaro: #FDF7F9;
 }
 
@@ -30,12 +41,242 @@ h2 { text-align:center; color:var(--blu); font-size:2rem; margin-bottom:10px; }
 .sottotitolo { text-align:center; color:#888; margin-bottom:40px; }
 
 .corsi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; }
-.corso-card { background:var(--chiaro); border-top:4px solid var(--magenta); border-radius:8px; padding:22px; }
-.corso-card h3 { color:var(--blu); margin-bottom:4px; }
-.corso-sub { color:var(--magenta); font-size:.85rem; font-weight:bold; margin-bottom:10px; }
-.btn-small { display:inline-block; margin-top:12px; background:var(--blu); color:#fff; padding:8px 16px; border-radius:20px; text-decoration:none; font-size:.85rem; }
 
-.perche-noi { margin-top:50px; background:var(--blu); color:#fff; padding:30px; border-radius:8px; }
+/* Accordion corsi */
+.corso-accordion {
+  position:relative;
+  background:var(--chiaro);
+  border-top:4px solid var(--verde);
+  border-radius:8px;
+  overflow:hidden;
+}
+.corso-accordion-trigger {
+  width:100%;
+  display:flex;
+  align-items:center;
+  padding:22px;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  text-align:left;
+  font-family:inherit;
+  color:inherit;
+}
+.corso-accordion-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  gap:12px;
+}
+.corso-accordion-titles h3 { color:var(--blu); margin-bottom:4px; font-size:1.1rem; }
+.corso-accordion-icon {
+  flex-shrink:0;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:rgba(46,58,135,.1);
+  position:relative;
+  transition:transform .3s ease, background .3s ease;
+}
+.corso-accordion-icon::before {
+  content:'';
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:8px;
+  height:8px;
+  border-right:2px solid var(--blu);
+  border-bottom:2px solid var(--blu);
+  transform:translate(-50%,-65%) rotate(45deg);
+  transition:transform .3s ease;
+}
+.corso-accordion-trigger[aria-expanded="true"] .corso-accordion-icon {
+  background:rgba(217,26,92,.12);
+}
+.corso-accordion-trigger[aria-expanded="true"] .corso-accordion-icon::before {
+  transform:translate(-50%,-35%) rotate(-135deg);
+}
+.corso-accordion-panel {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+}
+.corso-accordion-panel.is-open {
+  max-height:2000px;
+}
+.corso-accordion-panel > .corso-accordion-content {
+  padding:0 22px 22px;
+}
+.corso-accordion-panel:not(.is-open) > .corso-accordion-content {
+  visibility:hidden;
+}
+.corso-accordion-content p { margin-bottom:12px; line-height:1.6; }
+.corso-locandina { margin:16px 0; border-radius:8px; overflow:hidden; }
+.corso-locandina img { width:100%; height:auto; display:block; border-radius:8px; }
+.corso-orari-dettaglio { margin:16px 0; padding:14px; background:#fff; border-radius:8px; border-left:3px solid var(--blu); }
+.corso-orari-dettaglio h4 { color:var(--blu); font-size:.9rem; margin-bottom:8px; }
+.corso-orari-dettaglio ul { padding-left:18px; }
+.corso-orari-dettaglio li { margin-bottom:4px; font-size:.9rem; }
+.corso-frequenza { margin-top:8px; font-size:.85rem; color:#666; font-style:italic; }
+.corso-livelli { padding-left:20px; margin-bottom:12px; }
+.corso-livelli li { margin-bottom:8px; line-height:1.5; }
+.corso-maestra { font-size:.95rem; margin-bottom:12px; }
+
+/* Badge */
+.badge {
+  position:absolute;
+  top:12px;
+  right:12px;
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  padding:4px 10px;
+  border-radius:20px;
+  z-index:1;
+}
+.badge-novita {
+  background:linear-gradient(135deg, var(--blu), var(--magenta));
+  color:#fff;
+}
+.badge-arrivo {
+  background:#e8e4dc;
+  color:#666;
+  border:1px solid #ccc;
+}
+.corso-in-arrivo {
+  border-top-color:#bbb;
+  background:#f5f3ef;
+  opacity:.92;
+}
+.corso-in-arrivo .corso-accordion-titles h3 { color:#666; }
+.corso-in-arrivo .corso-sub { color:#888; }
+.corso-card-novita .corso-accordion-trigger { padding-top:36px; }
+
+.corso-sub { color:var(--verde); font-size:.85rem; font-weight:bold; margin-bottom:0; }
+.btn-small { display:inline-block; margin-top:12px; background:var(--blu); color:#fff; padding:8px 16px; border-radius:20px; text-decoration:none; font-size:.85rem; transition:background .2s; }
+.btn-small:hover { background:var(--magenta); }
+
+/* Sezioni speciali (franchising / collaborazioni) */
+.sezione-speciale {
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 60px 50px;
+}
+.sezione-speciale-inner {
+  background:linear-gradient(135deg, rgba(46,58,135,.06), rgba(217,26,92,.04));
+  border:2px dashed rgba(46,58,135,.25);
+  border-radius:12px;
+  padding:32px;
+  text-align:center;
+}
+.sezione-speciale-nota {
+  font-size:.85rem;
+  color:#666;
+  font-style:italic;
+  margin-bottom:20px;
+  padding:10px 16px;
+  background:rgba(255,255,255,.7);
+  border-radius:8px;
+  display:inline-block;
+}
+.sezione-speciale-logo {
+  max-width:200px;
+  height:auto;
+  margin:0 auto 24px;
+  display:block;
+}
+.sezione-speciale-inner > h3 {
+  color:var(--blu);
+  font-size:1.5rem;
+  margin-bottom:4px;
+}
+.sezione-speciale-inclusione {
+  border-top:1px solid rgba(46,58,135,.1);
+}
+.sezione-speciale-inclusione .sezione-speciale-inner {
+  background:linear-gradient(135deg, rgba(125,185,62,.08), rgba(46,58,135,.05));
+  border-color:rgba(125,185,62,.35);
+}
+.corso-accordion-speciale {
+  max-width:600px;
+  margin:0 auto;
+  text-align:left;
+}
+
+/* Orari settimanali */
+.orari-section { background:var(--chiaro); max-width:none; padding:70px 60px; }
+.orari-section > h2,
+.orari-section > .sottotitolo { max-width:1100px; margin-left:auto; margin-right:auto; }
+.orari-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  max-width:1100px;
+  margin:0 auto 40px;
+}
+.orari-giorno-card {
+  background:#fff;
+  border-radius:10px;
+  padding:22px;
+  border-top:4px solid var(--blu);
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.orari-giorno-card h3 {
+  color:var(--blu);
+  font-size:1rem;
+  margin-bottom:16px;
+  text-align:center;
+}
+.orari-lista { list-style:none; }
+.orari-lista li { margin-bottom:8px; }
+.orario-link {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 12px;
+  border-radius:8px;
+  text-decoration:none;
+  color:#333;
+  transition:background .2s, transform .15s;
+}
+.orario-link:hover,
+.orario-link:focus {
+  background:rgba(46,58,135,.08);
+  transform:translateX(3px);
+  outline:none;
+}
+.orario-ora {
+  font-size:.85rem;
+  font-weight:600;
+  color:var(--magenta);
+  white-space:nowrap;
+  min-width:100px;
+}
+.orario-nome { font-weight:500; color:var(--blu); }
+.orari-frequenza {
+  max-width:1100px;
+  margin:0 auto;
+  background:#fff;
+  padding:24px 28px;
+  border-radius:10px;
+  border-left:4px solid var(--magenta);
+}
+.orari-frequenza h3 {
+  color:var(--blu);
+  font-size:1.1rem;
+  margin-bottom:12px;
+  text-align:left;
+}
+.orari-frequenza ul { padding-left:20px; }
+.orari-frequenza li { margin-bottom:6px; line-height:1.5; }
+
+.corso-accordion.is-highlight {
+  box-shadow:0 0 0 3px var(--giallo), 0 4px 16px rgba(46,58,135,.2);
+  transition:box-shadow .3s ease;
+}
+
+.perche-noi { margin-top:50px; background:var(--giallo); color:--blu; padding:30px; border-radius:8px; }
 .perche-noi h3 { margin-bottom:15px; }
 .perche-noi ul { padding-left:20px; }
 .perche-noi li { margin-bottom:10px; }
@@ -52,6 +293,9 @@ h2 { text-align:center; color:var(--blu); font-size:2rem; margin-bottom:10px; }
 
 @media (max-width:768px) {
   #navbar { flex-direction:column; gap:10px; padding:15px; }
-  .corsi-grid, .recensioni-grid, .impegno-grid { grid-template-columns:1fr; }
-  section { padding:50px 20px; }
+  .corsi-grid, .recensioni-grid, .impegno-grid, .orari-grid { grid-template-columns:1fr; }
+  section, .sezione-speciale { padding:50px 20px; }
+  .orari-section { padding:50px 20px; }
+  .orario-link { flex-direction:column; align-items:flex-start; gap:4px; }
+  .orario-ora { min-width:auto; }
 }
