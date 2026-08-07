@@ -73,7 +73,9 @@
       <h2>I Nostri Corsi</h2>
       <p class="sottotitolo">Un percorso pensato per ogni esigenza</p>
 
-      <div class="corsi-grid">
+      <div class="corsi-categoria">
+        <h3 class="corsi-categoria-titolo">Per donne</h3>
+        <div class="corsi-grid">
         <!-- COMPONENTE: Accordion corso (Diva's Dance) -->
         <article class="corso-card corso-card--principale corso-accordion" id="corso-divas-dance" data-corso="divas-dance">
           <button
@@ -167,48 +169,12 @@
             >
           </div>
         </article>
+        </div>
+      </div>
 
-        <!-- COMPONENTE: Accordion corso + badge IN ARRIVO (Dance 4 All) -->
-        <article class="corso-card corso-card--principale corso-card--in-arrivo corso-card--con-badge corso-accordion" id="corso-dance-4-all" data-corso="dance-4-all">
-          <span class="badge badge--in-arrivo">IN ARRIVO</span>
-          <button
-            type="button"
-            class="corso-accordion-trigger"
-            aria-expanded="false"
-            aria-controls="panel-dance-4-all"
-          >
-            <span class="corso-accordion-header">
-              <span class="corso-accordion-titles">
-                <h3>Dance 4 All</h3>
-                <p class="corso-sub">Scopri il tuo stile</p>
-              </span>
-              <span class="corso-accordion-icon" aria-hidden="true"></span>
-            </span>
-          </button>
-          <div
-            class="corso-accordion-panel"
-            id="panel-dance-4-all"
-            role="region"
-          >
-            <p>
-              Salsa, bachata, reggaeton e molto altro. Anche senza partner, per
-              tutte le età e livelli.
-            </p>
-            <figure class="corso-locandina">
-              <img
-                src="assets/locandine/dance-4-all.png"
-                alt="Locandina Dance 4 All"
-                loading="lazy"
-              />
-            </figure>
-            <a
-              href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Dance%204%20All"
-              class="btn-small"
-              >Info su WhatsApp</a
-            >
-          </div>
-        </article>
-
+      <div class="corsi-categoria">
+        <h3 class="corsi-categoria-titolo">Per bambini/e e ragazzi/e</h3>
+        <div class="corsi-grid">
         <!-- COMPONENTE: Accordion corso + badge NOVITÀ (Dance 4 You) -->
         <article class="corso-card corso-card--principale corso-card--con-badge corso-accordion" id="corso-dance-4-you" data-corso="dance-4-you">
           <span class="badge badge--novita">NOVITÀ</span>
@@ -310,6 +276,53 @@
             >
           </div>
         </article>
+        </div>
+      </div>
+
+      <div class="corsi-categoria">
+        <h3 class="corsi-categoria-titolo">Per adulti</h3>
+        <div class="corsi-grid">
+        <!-- COMPONENTE: Accordion corso + badge IN ARRIVO (Dance 4 All) -->
+        <article class="corso-card corso-card--principale corso-card--in-arrivo corso-card--con-badge corso-accordion" id="corso-dance-4-all" data-corso="dance-4-all">
+          <span class="badge badge--in-arrivo">IN ARRIVO</span>
+          <button
+            type="button"
+            class="corso-accordion-trigger"
+            aria-expanded="false"
+            aria-controls="panel-dance-4-all"
+          >
+            <span class="corso-accordion-header">
+              <span class="corso-accordion-titles">
+                <h3>Dance 4 All</h3>
+                <p class="corso-sub">Scopri il tuo stile</p>
+              </span>
+              <span class="corso-accordion-icon" aria-hidden="true"></span>
+            </span>
+          </button>
+          <div
+            class="corso-accordion-panel"
+            id="panel-dance-4-all"
+            role="region"
+          >
+            <p>
+              Salsa, bachata, reggaeton e molto altro. Anche senza partner, per
+              tutte le età e livelli.
+            </p>
+            <figure class="corso-locandina">
+              <img
+                src="assets/locandine/dance-4-all.png"
+                alt="Locandina Dance 4 All"
+                loading="lazy"
+              />
+            </figure>
+            <a
+              href="https://wa.me/393491684350?text=Ciao!%20Vorrei%20info%20sul%20corso%20Dance%204%20All"
+              class="btn-small"
+              >Info su WhatsApp</a
+            >
+          </div>
+        </article>
+        </div>
       </div>
 
       
@@ -336,7 +349,9 @@
           >
             <span class="corso-accordion-header">
               <span class="corso-accordion-titles">
-                <h3>Balla&amp;Snella</h3>
+                <h3 class="titolo-balla-snella">
+                  <span class="titolo-balla-snella__balla">Balla</span><span class="titolo-balla-snella__e">&amp;</span><span class="titolo-balla-snella__snella">Snella</span>
+                </h3>
                 <p class="corso-sub">Dimagrire Ballando</p>
               </span>
               <span class="corso-accordion-icon" aria-hidden="true"></span>

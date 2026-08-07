@@ -44,6 +44,15 @@ h2 { text-align:center; color:var(--blu); font-size:2rem; margin-bottom:10px; }
 .sottotitolo { text-align:center; color:#888; margin-bottom:40px; }
 
 .corsi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; }
+.corsi-categoria { margin-bottom:45px; }
+.corsi-categoria:last-child { margin-bottom:0; }
+.corsi-categoria-titolo {
+  color:var(--blu);
+  font-size:1.25rem;
+  margin-bottom:20px;
+  padding-bottom:8px;
+  border-bottom:2px solid var(--magenta);
+}
 
 /* === Base card corsi (proprietà condivise, senza colori) === */
 .corso-card {
@@ -84,10 +93,13 @@ h2 { text-align:center; color:var(--blu); font-size:2rem; margin-bottom:10px; }
 .corso-card--in-arrivo .corso-accordion-titles h3 { color:#666; }
 .corso-card--in-arrivo .corso-sub { color:#888; }
 
-/* === Sezione Balla&Snella (franchising) === */
+/* === Sezione Balla&Snella (franchising) — colori dal logo === */
 .corso-card--franchising {
-  background:linear-gradient(135deg, rgba(73,68,149,.06), rgba(208,52,96,.04));
-  border:2px dashed rgba(73,68,149,.25);
+  --bs-lilla: #8F8CBF;        /* contorno cerchio logo + "Snella" */
+  --bs-lilla-chiaro: #A3A1C2; /* "Balla" */
+  --bs-grigio: #666666;       /* "Dimagrire Ballando" */
+  background:linear-gradient(135deg, rgba(143,140,191,.08), rgba(208,52,96,.04));
+  border:2px dashed rgba(143,140,191,.45);
   border-radius:12px;
 }
 .sezione-speciale-inner.corso-card--franchising {
@@ -95,7 +107,7 @@ h2 { text-align:center; color:var(--blu); font-size:2rem; margin-bottom:10px; }
   text-align:center;
 }
 .corso-card--franchising.corso-accordion {
-  border-top:4px solid var(--magenta);
+  border-top:4px solid var(--bs-lilla);
   border-left:none;
   border-right:none;
   border-bottom:none;
@@ -104,18 +116,24 @@ h2 { text-align:center; color:var(--blu); font-size:2rem; margin-bottom:10px; }
   margin:0 auto;
   text-align:left;
 }
-.corso-card--franchising .corso-accordion-titles h3 { color:var(--magenta); }
-.corso-card--franchising .corso-sub { color:var(--blu); }
-.corso-card--franchising .corso-accordion-icon { background:rgba(208,52,96,.1); }
+.corso-card--franchising .titolo-balla-snella__balla { color:var(--bs-lilla-chiaro); }
+.corso-card--franchising .titolo-balla-snella__e { color:var(--magenta); }
+.corso-card--franchising .titolo-balla-snella__snella { color:var(--bs-lilla); }
+.corso-card--franchising .corso-sub { color:var(--bs-grigio); }
+.corso-card--franchising .corso-accordion-icon { background:rgba(143,140,191,.15); }
 .corso-card--franchising .corso-accordion-icon::before {
+  border-right-color:var(--bs-lilla);
+  border-bottom-color:var(--bs-lilla);
+}
+.corso-card--franchising .corso-accordion-trigger[aria-expanded="true"] .corso-accordion-icon {
+  background:rgba(208,52,96,.12);
+}
+.corso-card--franchising .corso-accordion-trigger[aria-expanded="true"] .corso-accordion-icon::before {
   border-right-color:var(--magenta);
   border-bottom-color:var(--magenta);
 }
-.corso-card--franchising .corso-accordion-trigger[aria-expanded="true"] .corso-accordion-icon {
-  background:rgba(73,68,149,.12);
-}
-.corso-card--franchising .corso-orari-dettaglio { border-left-color:var(--magenta); }
-.corso-card--franchising .corso-orari-dettaglio h4 { color:var(--magenta); }
+.corso-card--franchising .corso-orari-dettaglio { border-left-color:var(--bs-lilla); }
+.corso-card--franchising .corso-orari-dettaglio h4 { color:var(--bs-lilla); }
 
 /* === Sezione Danza e Benessere === */
 .corso-card--benessere {
