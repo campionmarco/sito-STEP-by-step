@@ -1,6 +1,7 @@
 (function () {
   'use strict';
 
+  // Avvolge il contenuto del pannello per permettere l'animazione max-height
   function wrapPanelContent(panel) {
     if (panel.querySelector('.corso-accordion-content')) return;
     const wrapper = document.createElement('div');
@@ -11,6 +12,7 @@
     panel.appendChild(wrapper);
   }
 
+  // Imposta lo stato aperto/chiuso dell'accordion e aggiorna gli attributi ARIA
   function setAccordionOpen(accordion, open) {
     const trigger = accordion.querySelector('.corso-accordion-trigger');
     const panel = accordion.querySelector('.corso-accordion-panel');
@@ -21,6 +23,7 @@
     panel.setAttribute('aria-hidden', open ? 'false' : 'true');
   }
 
+  // Apre un accordion, chiude gli altri e opzionalmente scrolla/evidenzia la card
   function openAccordion(accordion, { scroll = false, highlight = false } = {}) {
     if (!accordion) return;
 
@@ -31,7 +34,7 @@
     setAccordionOpen(accordion, true);
 
     if (scroll) {
-      const offset = 80;
+      const offset = 80; // Altezza navbar sticky
       const top =
         accordion.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: top, behavior: 'smooth' });
@@ -45,6 +48,7 @@
     }
   }
 
+  // Collega click sui trigger accordion (desktop e mobile)
   function initAccordions() {
     document.querySelectorAll('.corso-accordion').forEach(function (accordion) {
       const trigger = accordion.querySelector('.corso-accordion-trigger');
@@ -65,6 +69,7 @@
     });
   }
 
+  // Dalla tabella orari: scroll alla card del corso e aprila già espansa
   function initOrarioLinks() {
     document.querySelectorAll('.orario-link').forEach(function (link) {
       link.addEventListener('click', function (event) {
@@ -79,12 +84,14 @@
     });
   }
 
+  // Se la pagina viene aperta con hash (es. #corso-divas-dance), apre l'accordion corrispondente
   function initHashOnLoad() {
     const hash = window.location.hash;
     if (!hash) return;
 
     const accordion = document.querySelector(hash);
     if (accordion && accordion.classList.contains('corso-accordion')) {
+      // Breve delay per attendere il layout prima dello scroll
       window.setTimeout(function () {
         openAccordion(accordion, { scroll: true, highlight: true });
       }, 100);

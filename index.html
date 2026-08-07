@@ -35,6 +35,7 @@
       </nav>
     </header>
 
+    <!-- SEZIONE: Hero / home page -->
     <section id="home" class="hero">
       <div class="hero-content">
         <img src="assets/loghi/logo-step-by-step.png" alt="Step by Step ASD" />
@@ -50,6 +51,7 @@
       </div>
     </section>
 
+    <!-- SEZIONE: Presentazione della scuola -->
     <section id="chi-siamo">
       <h2>Chi Siamo</h2>
       <div class="chi-siamo-content">
@@ -66,12 +68,14 @@
       </div>
     </section>
 
+    <!-- SEZIONE: Corsi principali gestiti da Step by Step -->
     <section id="corsi">
       <h2>I Nostri Corsi</h2>
       <p class="sottotitolo">Un percorso pensato per ogni esigenza</p>
 
       <div class="corsi-grid">
-        <article class="corso-accordion" id="corso-divas-dance" data-corso="divas-dance">
+        <!-- COMPONENTE: Accordion corso (Diva's Dance) -->
+        <article class="corso-card corso-card--principale corso-accordion" id="corso-divas-dance" data-corso="divas-dance">
           <button
             type="button"
             class="corso-accordion-trigger"
@@ -118,7 +122,8 @@
           </div>
         </article>
 
-        <article class="corso-accordion" id="corso-sit-fit-gym" data-corso="sit-fit-gym">
+        <!-- COMPONENTE: Accordion corso (Sit Fit Gym) -->
+        <article class="corso-card corso-card--principale corso-accordion" id="corso-sit-fit-gym" data-corso="sit-fit-gym">
           <button
             type="button"
             class="corso-accordion-trigger"
@@ -163,8 +168,9 @@
           </div>
         </article>
 
-        <article class="corso-accordion corso-card-novita" id="corso-dance-4-all" data-corso="dance-4-all">
-          <span class="badge badge-novita">NOVITÀ</span>
+        <!-- COMPONENTE: Accordion corso + badge IN ARRIVO (Dance 4 All) -->
+        <article class="corso-card corso-card--principale corso-card--in-arrivo corso-card--con-badge corso-accordion" id="corso-dance-4-all" data-corso="dance-4-all">
+          <span class="badge badge--in-arrivo">IN ARRIVO</span>
           <button
             type="button"
             class="corso-accordion-trigger"
@@ -203,7 +209,9 @@
           </div>
         </article>
 
-        <article class="corso-accordion" id="corso-dance-4-you" data-corso="dance-4-you">
+        <!-- COMPONENTE: Accordion corso + badge NOVITÀ (Dance 4 You) -->
+        <article class="corso-card corso-card--principale corso-card--con-badge corso-accordion" id="corso-dance-4-you" data-corso="dance-4-you">
+          <span class="badge badge--novita">NOVITÀ</span>
           <button
             type="button"
             class="corso-accordion-trigger"
@@ -256,8 +264,9 @@
           </div>
         </article>
 
-        <article class="corso-accordion corso-in-arrivo" id="corso-you-and-me" data-corso="you-and-me">
-          <span class="badge badge-arrivo">IN ARRIVO</span>
+        <!-- COMPONENTE: Accordion corso + badge NOVITÀ (You and Me) -->
+        <article class="corso-card corso-card--principale corso-card--con-badge corso-accordion" id="corso-you-and-me" data-corso="you-and-me">
+          <span class="badge badge--novita">NOVITÀ</span>
           <button
             type="button"
             class="corso-accordion-trigger"
@@ -306,8 +315,9 @@
       
     </section>
 
+    <!-- SEZIONE: Balla&Snella — franchising ospitato (non corso interno) -->
     <section id="balla-snella" class="sezione-speciale">
-      <div class="sezione-speciale-inner">
+      <div class="sezione-speciale-inner corso-card corso-card--franchising">
         <p class="sezione-speciale-nota">
           Franchising ospitato presso Step by Step ASD
         </p>
@@ -316,7 +326,8 @@
           alt="Logo Balla&amp;Snella"
           class="sezione-speciale-logo"
         />
-        <article class="corso-accordion corso-accordion-speciale" id="corso-balla-snella" data-corso="balla-snella">
+        <!-- COMPONENTE: Accordion corso franchising -->
+        <article class="corso-card corso-card--franchising corso-accordion" id="corso-balla-snella" data-corso="balla-snella">
           <button
             type="button"
             class="corso-accordion-trigger"
@@ -366,8 +377,9 @@
       </div>
     </section>
 
+    <!-- SEZIONE: Danza e Benessere — progetto esterno in collaborazione -->
     <section id="danza-benessere" class="sezione-speciale sezione-speciale-inclusione">
-      <div class="sezione-speciale-inner">
+      <div class="sezione-speciale-inner corso-card corso-card--benessere">
         <p class="sezione-speciale-nota">
           Progetto in collaborazione con le strutture del territorio 
         </p>
@@ -386,6 +398,7 @@
       </div>
     </section>
 
+    <!-- SEZIONE: Motivi per scegliere Step by Step -->
     <section id="perche-noi">
       <div class="perche-noi">
         <h3>Perché scegliere Step by Step?</h3>
@@ -410,12 +423,14 @@
       </div>
     </section>
 
+    <!-- SEZIONE: Orari settimanali — link alle card corso corrispondenti -->
     <section id="orari" class="orari-section">
       <h2>Orari Corsi</h2>
       <p class="sottotitolo">
         Programma settimanale — clicca su un corso per i dettagli
       </p>
 
+      <!-- COMPONENTE: Griglia orari per giorno -->
       <div class="orari-grid">
         <article class="orari-giorno-card">
           <h3>Lunedì e Mercoledì</h3>
@@ -514,6 +529,7 @@
         </article>
       </div>
 
+      <!-- COMPONENTE: Riepilogo frequenza settimanale -->
       <div class="orari-frequenza">
         <h3>Frequenza corsi</h3>
         <ul>
@@ -526,6 +542,7 @@
       </div>
     </section>
 
+    <!-- SEZIONE: Recensioni allieve -->
     <section id="recensioni">
       <h2>Dicono di Noi</h2>
       <div class="recensioni-grid">
@@ -547,6 +564,7 @@
       </div>
     </section>
 
+    <!-- SEZIONE: Impegno sociale e franchising -->
     <section id="impegno">
       <h2>Il Nostro Impegno</h2>
       <div class="impegno-grid">
@@ -568,6 +586,7 @@
       </div>
     </section>
 
+    <!-- SEZIONE: Contatti e recapiti -->
     <section id="contatti">
       <h2>Contattaci</h2>
       <p class="sottotitolo">
