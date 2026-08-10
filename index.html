@@ -28,6 +28,7 @@
           <li><a href="#corsi">Corsi</a></li>
           <li><a href="#orari">Orari</a></li>
           <li><a href="#recensioni">Dicono di Noi</a></li>
+          <li><a href="#galleria">Galleria</a></li>
           <li><a href="#impegno">Il Nostro Impegno</a></li>
           <li><a href="#contatti">Contatti</a></li>
         </ul>
@@ -77,7 +78,7 @@
         <h3 class="corsi-categoria-titolo">Per donne</h3>
         <div class="corsi-grid">
         <!-- COMPONENTE: Accordion corso (Diva's Dance) -->
-        <article class="corso-card corso-card--principale corso-accordion" id="corso-divas-dance" data-corso="divas-dance">
+        <article class="corso-card corso-card--principale corso-card--divas-dance corso-accordion" id="corso-divas-dance" data-corso="divas-dance">  
           <button
             type="button"
             class="corso-accordion-trigger"
@@ -85,6 +86,7 @@
             aria-controls="panel-divas-dance"
           >
             <span class="corso-accordion-header">
+              <img src="assets/loghi/divas-dance.png" alt="Logo Diva's Dance" class="corso-logo" onerror="this.style.display='none'">
               <span class="corso-accordion-titles">
                 <h3 class="orario-corso--divas-dance">Diva's Dance</h3>
                 <p class="corso-sub">La tua essenza, la tua danza</p>
@@ -125,7 +127,7 @@
         </article>
 
         <!-- COMPONENTE: Accordion corso (Sit Fit Gym) -->
-        <article class="corso-card corso-card--principale corso-accordion" id="corso-sit-fit-gym" data-corso="sit-fit-gym">
+        <article class="corso-card corso-card--principale corso-card--sit-fit-gym corso-accordion" id="corso-sit-fit-gym" data-corso="sit-fit-gym">  
           <button
             type="button"
             class="corso-accordion-trigger"
@@ -133,6 +135,7 @@
             aria-controls="panel-sit-fit-gym"
           >
             <span class="corso-accordion-header">
+              <img src="assets/loghi/sit-fit-gym.png" alt="Logo Sit Fit Gym" class="corso-logo" onerror="this.style.display='none'">
               <span class="corso-accordion-titles">
                 <h3 class="orario-corso--sit-fit-gym">Sit Fit Gym</h3>
                 <p class="corso-sub">Energia e divertimento in leggerezza</p>
@@ -176,7 +179,7 @@
         <h3 class="corsi-categoria-titolo">Per bambini/e e ragazzi/e</h3>
         <div class="corsi-grid">
         <!-- COMPONENTE: Accordion corso + badge NOVITÀ (Dance 4 You) -->
-        <article class="corso-card corso-card--principale corso-card--con-badge corso-accordion" id="corso-dance-4-you" data-corso="dance-4-you">
+        <article class="corso-card corso-card--principale corso-card--dance-4-you corso-card--con-badge corso-accordion" id="corso-dance-4-you" data-corso="dance-4-you">  
           <span class="badge badge--novita">NOVITÀ</span>
           <button
             type="button"
@@ -185,6 +188,7 @@
             aria-controls="panel-dance-4-you"
           >
             <span class="corso-accordion-header">
+              <img src="assets/loghi/dance-4-you.png" alt="Logo Dance 4 You" class="corso-logo" onerror="this.style.display='none'">
               <span class="corso-accordion-titles">
                 <h3 class="orario-corso--dance-4-you">Dance 4 You</h3>
                 <p class="corso-sub">Propedeutica alla danza classica</p>
@@ -231,7 +235,7 @@
         </article>
 
         <!-- COMPONENTE: Accordion corso + badge NOVITÀ (You and Me) -->
-        <article class="corso-card corso-card--principale corso-card--con-badge corso-accordion" id="corso-you-and-me" data-corso="you-and-me">
+        <article class="corso-card corso-card--principale corso-card--you-and-me corso-card--con-badge corso-accordion" id="corso-you-and-me" data-corso="you-and-me">  
           <span class="badge badge--novita">NOVITÀ</span>
           <button
             type="button"
@@ -240,6 +244,7 @@
             aria-controls="panel-you-and-me"
           >
             <span class="corso-accordion-header">
+              <img src="assets/loghi/you-and-me.png" alt="Logo You And Me" class="corso-logo" onerror="this.style.display='none'">
               <span class="corso-accordion-titles">
                 <h3 class="orario-corso--you-and-me">You and Me</h3>
                 <p class="corso-sub">Mamma e bambino/a insieme</p>
@@ -283,7 +288,7 @@
         <h3 class="corsi-categoria-titolo">Per adulti</h3>
         <div class="corsi-grid">
         <!-- COMPONENTE: Accordion corso + badge IN ARRIVO (Dance 4 All) -->
-        <article class="corso-card corso-card--principale corso-card--in-arrivo corso-card--con-badge corso-accordion" id="corso-dance-4-all" data-corso="dance-4-all">
+        <article class="corso-card corso-card--principale corso-card--dance-4-all corso-card--in-arrivo corso-card--con-badge corso-accordion" id="corso-dance-4-all" data-corso="dance-4-all">  
           <span class="badge badge--in-arrivo">IN ARRIVO</span>
           <button
             type="button"
@@ -292,6 +297,7 @@
             aria-controls="panel-dance-4-all"
           >
             <span class="corso-accordion-header">
+              <img src="assets/loghi/dance-4-all.png" alt="Logo Dance 4 All" class="corso-logo" onerror="this.style.display='none'">
               <span class="corso-accordion-titles">
                 <h3 class="orario-corso--dance-4-all">Dance 4 All</h3>
                 <p class="corso-sub">Scopri il tuo stile</p>
@@ -576,6 +582,21 @@
           <p>"La tua passione è contagiosa, grazie per aver reso ogni lezione un'esperienza indimenticabile. Per me è stata un'esperienza mai provata prima, e sono fiera di aver partecipato al saggio. Grazie di cuore."</p>
           <span class="nome-recensore">— Larisa</span>
         </div>
+      </div>
+    </section>
+
+    <!-- SEZIONE: Galleria Foto -->
+    <section id="galleria">
+      <h2>La Nostra Galleria</h2>
+      <p class="sottotitolo">I momenti più belli della nostra scuola</p>
+      <div class="galleria-grid">
+        <!-- Placeholders pronti per essere sostituiti con foto reali -->
+        <div class="galleria-item"><span>📷 Foto 1</span></div>
+        <div class="galleria-item"><span>📷 Foto 2</span></div>
+        <div class="galleria-item"><span>📷 Foto 3</span></div>
+        <div class="galleria-item"><span>📷 Foto 4</span></div>
+        <div class="galleria-item"><span>📷 Foto 5</span></div>
+        <div class="galleria-item"><span>📷 Foto 6</span></div>
       </div>
     </section>
 

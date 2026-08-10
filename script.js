@@ -102,5 +102,59 @@
     initAccordions();
     initOrarioLinks();
     initHashOnLoad();
+    // --- MENU HAMBURGER MOBILE ---
+  const hamburger = document.getElementById('hamburger');
+  const navbar = document.getElementById('navbar');
+  const navLinksList = document.querySelector('.nav-links');
+  const navLinksItems = document.querySelectorAll('.nav-links a');
+
+  if (hamburger) {
+    // Apri/Chiudi menu al click sull'hamburger
+    hamburger.addEventListener('click', function (e) {
+      e.stopPropagation(); // Evita che il click si propaghi al document
+      navbar.classList.toggle('nav-aperta');
+      hamburger.innerHTML = navbar.classList.contains('nav-aperta') ? '&times;' : '&#9776;';
+    });
+
+    // Chiudi il menu quando si clicca un link
+    navLinksItems.forEach(function(link) {
+      link.addEventListener('click', function() {
+        navbar.classList.remove('nav-aperta');
+        hamburger.innerHTML = '&#9776;';
+      });
+    });
+
+    // Chiudi il menu se si clicca fuori
+    document.addEventListener('click', function (e) {
+      if (navbar.classList.contains('nav-aperta') && !navbar.contains(e.target)) {
+        navbar.classList.remove('nav-aperta');
+        hamburger.innerHTML = '&#9776;';
+      }
+    });
+  }
+
+  // --- STICKY REVEAL ON SCROLL ---
+  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+  window.addEventListener('scroll', function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Non nascondere se il menu mobile è aperto
+    if(navbar.classList.contains('nav-aperta')) return;
+
+    if (currentScroll > 100) {
+      if (currentScroll > lastScrollTop) {
+        // Scroll verso il basso -> nascondi
+        navbar.style.transform = 'translateY(-100%)';
+      } else {
+        // Scroll verso l'alto -> mostra
+        navbar.style.transform = 'translateY(0)';
+      }
+    } else {
+      // In cima alla pagina -> mostra
+      navbar.style.transform = 'translateY(0)';
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Previeni valori negativi
+  });
   });
 })();
