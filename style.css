@@ -47,18 +47,20 @@ body {
   z-index: 100;
   transition: transform 0.3s ease; /* Transizione per lo scroll up/down */ } /* z-index 100: resta sopra contenuti, sotto WhatsApp float */
 .logo img { height:50px; }
-.nav-links { list-style:none; display:flex; gap:25px; }
+.nav-links { list-style:none; display:flex; gap:25px; margin:0 auto; }
 .nav-links a { text-decoration:none; color:#fff; transition:color .3s; }
 .nav-links a:hover { color:var(--giallo); }
-/* Nascondi l'hamburger su desktop */
-/*.hamburger {
+
+/* Hamburger: nascosto su desktop, visibile solo sotto i 768px (vedi media query in fondo) */
+.hamburger {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: #fff;
   font-size: 1.8rem;
   cursor: pointer;
-}*/
+  line-height: 1;
+}
 /* === Hero === */
 .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(135deg, var(--blu), var(--magenta)); color:#fff; padding:40px 20px; }
 .hero h1 { font-size:3rem; margin-bottom:5px; }
@@ -438,10 +440,39 @@ h2 { text-align:center; color:var(--blu); font-size:2rem; margin-bottom:10px; }
 
 /* === Responsive === */
 @media (max-width:768px) {
-  #navbar { flex-direction:column; gap:10px; padding:15px; }
+  #navbar { flex-direction:row; justify-content:space-between; gap:10px; padding:15px 20px; }
   .corsi-grid, .recensioni-grid, .impegno-grid, .orari-grid { grid-template-columns:1fr; }
   section, .sezione-speciale { padding:50px 20px; }
   .orari-section { padding:50px 20px; }
   .orario-link { flex-direction:column; align-items:flex-start; gap:4px; }
   .orario-ora { min-width:auto; }
+
+  /* Mostra l'hamburger solo su mobile */
+  .hamburger { display:block; }
+
+  /* Menu nascosto di default: pannello a tendina sotto la navbar */
+  .nav-links {
+    flex-direction:column;
+    gap:0;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:var(--blu);
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+  }
+  .nav-links a {
+    padding:14px 20px;
+    display:block;
+    border-top:1px solid rgba(255,255,255,.12);
+  }
+
+  /* #navbar.nav-aperta viene aggiunta/rimossa dal JS al click sull'hamburger */
+  #navbar.nav-aperta .nav-links { max-height:500px; }
+
+  /* Loghi corsi leggermente più piccoli su mobile per non schiacciare il testo */
+  .corso-logo { width:38px; height:38px; }
+  .corso-accordion-header { gap:10px; }
 }
