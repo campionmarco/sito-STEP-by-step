@@ -98,10 +98,49 @@
     }
   }
 
+  // Carosello recensioni: evidenzia la card più vicina al centro e collega le frecce
+  function initRecensioniCarosello() {
+    const track = document.getElementById('recensioniTrack');
+    if (!track) return;
+
+    const cards = Array.from(track.querySelectorAll('.recensione-card'));
+    const wrapper = track.closest('.recensioni-carosello-wrapper');
+    const frecciaSx = wrapper.querySelector('.recensioni-freccia--sinistra');
+    const frecciaDx = wrapper.querySelector('.recensioni-freccia--destra');
+
+    // Osserva quale card è più visibile/centrata nel track e le assegna la classe attiva
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+            cards.forEach(function (c) { c.classList.remove('recensione-card--attiva'); });
+            entry.target.classList.add('recensione-card--attiva');
+          }
+        });
+      },
+      { root: track, threshold: [0.6] }
+    );
+    cards.forEach(function (card) { observer.observe(card); });
+
+    // Scorre di una card alla volta (larghezza card + gap)
+    function scorri(direzione) {
+      const cardWidth = cards[0].getBoundingClientRect().width;
+      const gap = 20;
+      track.scrollBy({ left: direzione * (cardWidth + gap), behavior: 'smooth' });
+    }
+
+    if (frecciaSx) frecciaSx.addEventListener('click', function () { scorri(-1); });
+    if (frecciaDx) frecciaDx.addEventListener('click', function () { scorri(1); });
+
+    // Attiva la prima card di default, prima che lo scroll/observer intervenga
+    if (cards[0]) cards[0].classList.add('recensione-card--attiva');
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initAccordions();
     initOrarioLinks();
     initHashOnLoad();
+    initRecensioniCarosello();
     // --- MENU HAMBURGER MOBILE ---
   const hamburger = document.getElementById('hamburger');
   const navbar = document.getElementById('navbar');

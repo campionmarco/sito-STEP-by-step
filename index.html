@@ -563,42 +563,79 @@
       </div>
     </section>
 
-    <!-- SEZIONE: Recensioni allieve -->
+    <!-- SEZIONE: Recensioni allieve — carosello scorrevole con card centrale evidenziata -->
     <section id="recensioni">
       <h2>Dicono di Noi</h2>
-      <div class="recensioni-grid">
-        <div class="recensione-card">
-          <div class="stelle">★★★★★</div>
-          <p>"Un'esperienza bellissima ed emozionante. Vedere il lavoro realizzato dopo tanto impegno è stata una grande soddisfazione. Complimenti per come è stata gestita tutta la serata!"</p>
-          <span class="nome-recensore">— M. Lucia</span>
+      <div class="recensioni-carosello-wrapper">
+        <!-- Freccia sinistra: scorre indietro di una card -->
+        <button class="recensioni-freccia recensioni-freccia--sinistra" aria-label="Recensione precedente">&#10094;</button>
+
+        <div class="recensioni-grid" id="recensioniTrack">
+          <div class="recensione-card">
+            <div class="stelle">★★★★★</div>
+            <p>"Un'esperienza bellissima ed emozionante. Vedere il lavoro realizzato dopo tanto impegno è stata una grande soddisfazione. Complimenti per come è stata gestita tutta la serata!"</p>
+            <span class="nome-recensore">— M. Lucia</span>
+          </div>
+          <div class="recensione-card">
+            <div class="stelle">★★★★★</div>
+            <p>"Nel ballo non impari solo passi: incontri persone, nascono amicizie e sorrisi. Grazie per la pazienza e per aver insegnato che tutti possono ballare. Una serata bellissima, emozione unica."</p>
+            <span class="nome-recensore">— Sara</span>
+          </div>
+          <div class="recensione-card">
+            <div class="stelle">★★★★★</div>
+            <p>"La tua passione è contagiosa, grazie per aver reso ogni lezione un'esperienza indimenticabile. Per me è stata un'esperienza mai provata prima, e sono fiera di aver partecipato al saggio. Grazie di cuore."</p>
+            <span class="nome-recensore">— Larisa</span>
+          </div>
+          <!-- PLACEHOLDER: sostituisci testo e nome con la 4a recensione reale -->
+          <div class="recensione-card">
+            <div class="stelle">★★★★★</div>
+            <p>"Grazie di cuore maestra Eva per la tua speciale sensibilità. Questo percorso mi sta aiutando a ritrovare me stessa e il giorno del saggio è stato un'esperienza semplicemente stupenda."</p>
+            <span class="nome-recensore">— Manuela P.</span>
+          </div>
+          <!-- PLACEHOLDER: sostituisci testo e nome con la 5a recensione reale -->
+          <div class="recensione-card">
+            <div class="stelle">★★★★★</div>
+            <p>"Un'esperienza emozionante e ricca di significato! Ho trovato complicità con le compagne, nuove amicizie e tanta allegria, uscendo da questa avventura con più sicurezza in me stessa. Grazie Eva per aver creduto in noi!"</p>
+            <span class="nome-recensore">— Michaela</span>
+          </div>
+          <!-- PLACEHOLDER: sostituisci testo e nome con la 6a recensione reale -->
+          <div class="recensione-card">
+            <div class="stelle">★★★★★</div>
+            <p>"È stata un'emozione grandissima e un'esperienza bellissima, fatta di balli allegri e colorati in un clima di totale leggerezza e rispetto. Grazie di cuore per questa fantastica opportunità!"</p>
+            <span class="nome-recensore">— Caterina</span>
+          </div>
         </div>
-        <div class="recensione-card">
-          <div class="stelle">★★★★★</div>
-          <p>"Nel ballo non impari solo passi: incontri persone, nascono amicizie e sorrisi. Grazie per la pazienza e per aver insegnato che tutti possono ballare. Una serata bellissima, emozione unica."</p>
-          <span class="nome-recensore">— Sara</span>
-        </div>
-        <div class="recensione-card">
-          <div class="stelle">★★★★★</div>
-          <p>"La tua passione è contagiosa, grazie per aver reso ogni lezione un'esperienza indimenticabile. Per me è stata un'esperienza mai provata prima, e sono fiera di aver partecipato al saggio. Grazie di cuore."</p>
-          <span class="nome-recensore">— Larisa</span>
-        </div>
+
+        <!-- Freccia destra: scorre avanti di una card -->
+        <button class="recensioni-freccia recensioni-freccia--destra" aria-label="Recensione successiva">&#10095;</button>
       </div>
     </section>
 
-    <!-- SEZIONE: Galleria Foto -->
-    <section id="galleria">
-      <h2>La Nostra Galleria</h2>
-      <p class="sottotitolo">I momenti più belli della nostra scuola</p>
-      <div class="galleria-grid">
-        <!-- Placeholders pronti per essere sostituiti con foto reali -->
-        <div class="galleria-item"><span>📷 Foto 1</span></div>
-        <div class="galleria-item"><span>📷 Foto 2</span></div>
-        <div class="galleria-item"><span>📷 Foto 3</span></div>
-        <div class="galleria-item"><span>📷 Foto 4</span></div>
-        <div class="galleria-item"><span>📷 Foto 5</span></div>
-        <div class="galleria-item"><span>📷 Foto 6</span></div>
-      </div>
-    </section>
+<!-- SEZIONE: Galleria Foto -->
+<section id="galleria">
+  <h2>La Nostra Galleria</h2>
+  <p class="sottotitolo">I momenti più belli della nostra scuola</p>
+  <div class="galleria-grid">
+    <div class="galleria-item">
+      <img src="assets/foto/1.png" alt="Momento di danza della scuola Step by Step" loading="lazy">
+    </div>
+    <div class="galleria-item">
+      <img src="assets/foto/2.png" alt="Momento di danza della scuola Step by Step" loading="lazy">
+    </div>
+    <div class="galleria-item">
+      <img src="assets/foto/3.png" alt="Momento di danza della scuola Step by Step" loading="lazy">
+    </div>
+    <div class="galleria-item">
+      <img src="assets/foto/4.png" alt="Momento di danza della scuola Step by Step" loading="lazy">
+    </div>
+    <div class="galleria-item">
+      <img src="assets/foto/5.png" alt="Momento di danza della scuola Step by Step" loading="lazy">
+    </div>
+    <div class="galleria-item">
+      <img src="assets/foto/6.png" alt="Momento di danza della scuola Step by Step" loading="lazy">
+    </div>
+  </div>
+</section>
 
     <!-- SEZIONE: Impegno sociale e franchising -->
     <section id="impegno">
