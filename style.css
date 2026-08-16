@@ -547,3 +547,13 @@ h2 { text-align:center; color:var(--blu); font-size:2rem; margin-bottom:10px; }
   .corso-logo { width:38px; height:38px; }
   .corso-accordion-header { gap:10px; }
 }
+
+.credito-sviluppatore {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+.credito-sviluppatore a {
+  color: inherit;
+  text-decoration: underline;
+}
