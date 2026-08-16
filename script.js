@@ -1,6 +1,10 @@
 (function () {
   'use strict';
 
+  // ===========================================================
+  // ACCORDION CORSI (apertura/chiusura locandina + orari)
+  // ===========================================================
+
   // Avvolge il contenuto del pannello per permettere l'animazione max-height
   function wrapPanelContent(panel) {
     if (panel.querySelector('.corso-accordion-content')) return;
@@ -27,6 +31,7 @@
   function openAccordion(accordion, { scroll = false, highlight = false } = {}) {
     if (!accordion) return;
 
+    // Chiude tutti gli altri accordion aperti (comportamento "un corso alla volta")
     document.querySelectorAll('.corso-accordion').forEach(function (item) {
       if (item !== accordion) setAccordionOpen(item, false);
     });
@@ -34,7 +39,7 @@
     setAccordionOpen(accordion, true);
 
     if (scroll) {
-      const offset = 80; // Altezza navbar sticky
+      const offset = 80; // Altezza navbar fixed, da sottrarre per non coprire il titolo del corso
       const top =
         accordion.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: top, behavior: 'smooth' });
@@ -48,7 +53,7 @@
     }
   }
 
-  // Collega click sui trigger accordion (desktop e mobile)
+  // Collega click sui trigger accordion (funziona sia su desktop che su mobile)
   function initAccordions() {
     document.querySelectorAll('.corso-accordion').forEach(function (accordion) {
       const trigger = accordion.querySelector('.corso-accordion-trigger');
@@ -56,7 +61,7 @@
       if (!trigger || !panel) return;
 
       wrapPanelContent(panel);
-      setAccordionOpen(accordion, false);
+      setAccordionOpen(accordion, false); // Tutti chiusi all'avvio
 
       trigger.addEventListener('click', function () {
         const isOpen = trigger.getAttribute('aria-expanded') === 'true';
@@ -69,7 +74,11 @@
     });
   }
 
-  // Dalla tabella orari: scroll alla card del corso e aprila già espansa
+  // ===========================================================
+  // COLLEGAMENTO TABELLA ORARI -> CARD CORSO
+  // ===========================================================
+
+  // Dalla tabella orari: click su un orario scrolla alla card del corso e la apre già espansa
   function initOrarioLinks() {
     document.querySelectorAll('.orario-link').forEach(function (link) {
       link.addEventListener('click', function (event) {
@@ -98,7 +107,11 @@
     }
   }
 
-  // Carosello recensioni: evidenzia la card più vicina al centro e collega le frecce
+  // ===========================================================
+  // CAROSELLO RECENSIONI
+  // ===========================================================
+
+  // Evidenzia la card più vicina al centro del carosello e collega le frecce di navigazione
   function initRecensioniCarosello() {
     const track = document.getElementById('recensioniTrack');
     if (!track) return;
@@ -122,7 +135,7 @@
     );
     cards.forEach(function (card) { observer.observe(card); });
 
-    // Scorre di una card alla volta (larghezza card + gap)
+    // Scorre di una card alla volta (larghezza card + gap tra le card)
     function scorri(direzione) {
       const cardWidth = cards[0].getBoundingClientRect().width;
       const gap = 20;
@@ -132,38 +145,38 @@
     if (frecciaSx) frecciaSx.addEventListener('click', function () { scorri(-1); });
     if (frecciaDx) frecciaDx.addEventListener('click', function () { scorri(1); });
 
-    // Attiva la prima card di default, prima che lo scroll/observer intervenga
+    // Attiva la prima card di default, prima che scroll/observer intervengano
     if (cards[0]) cards[0].classList.add('recensione-card--attiva');
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    initAccordions();
-    initOrarioLinks();
-    initHashOnLoad();
-    initRecensioniCarosello();
-    // --- MENU HAMBURGER MOBILE ---
-  const hamburger = document.getElementById('hamburger');
-  const navbar = document.getElementById('navbar');
-  const navLinksList = document.querySelector('.nav-links');
-  const navLinksItems = document.querySelectorAll('.nav-links a');
+  // ===========================================================
+  // MENU HAMBURGER MOBILE
+  // ===========================================================
 
-  if (hamburger) {
-    // Apri/Chiudi menu al click sull'hamburger
+  // Apre/chiude il pannello di navigazione su mobile e gestisce l'icona hamburger <-> X
+  function initHamburger() {
+    const hamburger = document.getElementById('hamburger');
+    const navbar = document.getElementById('navbar');
+    const navLinksItems = document.querySelectorAll('.nav-links a');
+
+    if (!hamburger || !navbar) return;
+
+    // Apri/chiudi menu al click sull'hamburger
     hamburger.addEventListener('click', function (e) {
-      e.stopPropagation(); // Evita che il click si propaghi al document
+      e.stopPropagation(); // Evita che il click si propaghi al document e richiuda subito il menu
       navbar.classList.toggle('nav-aperta');
       hamburger.innerHTML = navbar.classList.contains('nav-aperta') ? '&times;' : '&#9776;';
     });
 
-    // Chiudi il menu quando si clicca un link
-    navLinksItems.forEach(function(link) {
-      link.addEventListener('click', function() {
+    // Chiudi il menu quando si clicca un link (navigazione fluida su mobile)
+    navLinksItems.forEach(function (link) {
+      link.addEventListener('click', function () {
         navbar.classList.remove('nav-aperta');
         hamburger.innerHTML = '&#9776;';
       });
     });
 
-    // Chiudi il menu se si clicca fuori
+    // Chiudi il menu se si clicca fuori dalla navbar
     document.addEventListener('click', function (e) {
       if (navbar.classList.contains('nav-aperta') && !navbar.contains(e.target)) {
         navbar.classList.remove('nav-aperta');
@@ -172,28 +185,47 @@
     });
   }
 
-  // --- STICKY REVEAL ON SCROLL ---
-  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-  window.addEventListener('scroll', function() {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    
-    // Non nascondere se il menu mobile è aperto
-    if(navbar.classList.contains('nav-aperta')) return;
+  // ===========================================================
+  // NAVBAR A SCOMPARSA SU SCROLL (sticky reveal)
+  // ===========================================================
 
-    if (currentScroll > 100) {
-      if (currentScroll > lastScrollTop) {
-        // Scroll verso il basso -> nascondi
-        navbar.style.transform = 'translateY(-100%)';
+  // Nasconde la navbar scorrendo verso il basso, la rimostra scorrendo verso l'alto
+  function initStickyReveal() {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+
+    let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    window.addEventListener('scroll', function () {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      // Non nascondere la navbar se il menu mobile è aperto
+      if (navbar.classList.contains('nav-aperta')) return;
+
+      if (currentScroll > 100) {
+        if (currentScroll > lastScrollTop) {
+          navbar.style.transform = 'translateY(-100%)'; // Scroll verso il basso -> nascondi
+        } else {
+          navbar.style.transform = 'translateY(0)'; // Scroll verso l'alto -> mostra
+        }
       } else {
-        // Scroll verso l'alto -> mostra
-        navbar.style.transform = 'translateY(0)';
+        navbar.style.transform = 'translateY(0)'; // In cima alla pagina -> mostra sempre
       }
-    } else {
-      // In cima alla pagina -> mostra
-      navbar.style.transform = 'translateY(0)';
-    }
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Previeni valori negativi
-  });
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Previene valori negativi
+    });
+  }
+
+  // ===========================================================
+  // AVVIO
+  // ===========================================================
+
+  document.addEventListener('DOMContentLoaded', function () {
+    initAccordions();
+    initOrarioLinks();
+    initHashOnLoad();
+    initRecensioniCarosello();
+    initHamburger();
+    initStickyReveal();
   });
 })();
