@@ -880,6 +880,11 @@ section, .sezione-speciale {
   justify-content: space-between;
   gap: 14px;
 }
+
+.cookie-banner[hidden] {
+  display: none;
+} 
+
 .cookie-banner p {
   font-size: 0.85rem;
   line-height: 1.5;
