@@ -3,7 +3,7 @@
 Sito vetrina della scuola di danza **Step by Step ASD** (Via Corridoni 2, Rovigo).
 Progetto realizzato da **Marco Digital Solutions** come portfolio e come sito ufficiale della scuola.
 
-🔗 **Sito online:** _(aggiungere qui il link Vercel/dominio una volta pubblicato)_
+🔗 **Sito online:** _https://stepbystepasd.vercel.app/_
 
 ---
 
