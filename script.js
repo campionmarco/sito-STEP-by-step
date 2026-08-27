@@ -217,6 +217,66 @@
   }
 
   // ===========================================================
+  // COOKIE BANNER + GOOGLE ANALYTICS (caricato solo dopo consenso)
+  // ===========================================================
+
+  const COOKIE_CONSENSO_KEY = 'sbs-consenso-analytics'; // Chiave localStorage: 'accettato' | 'rifiutato'
+
+  // Inietta dinamicamente lo script di Google Analytics (gtag.js) nella pagina
+  function caricaGoogleAnalytics() {
+    if (!window.GA_MEASUREMENT_ID || window.GA_MEASUREMENT_ID.indexOf('XXXXXXXXXX') !== -1) {
+      return; // ID non ancora configurato: non caricare nulla
+    }
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', window.GA_MEASUREMENT_ID);
+  }
+
+  // Mostra/nasconde il banner (se presente in pagina) e collega i pulsanti Accetta/Rifiuta.
+  // Il consenso è condiviso tra tutte le pagine del sito tramite localStorage.
+  function initCookieBanner() {
+    const scelta = localStorage.getItem(COOKIE_CONSENSO_KEY);
+
+    if (scelta === 'accettato') {
+      caricaGoogleAnalytics(); // Consenso già dato in precedenza (anche su un'altra pagina)
+      return;
+    }
+    if (scelta === 'rifiutato') {
+      return; // Rifiutato in precedenza: non mostrare più il banner, non caricare nulla
+    }
+
+    // Nessuna scelta salvata: mostra il banner, solo se presente in questa pagina
+    const banner = document.getElementById('cookieBanner');
+    if (!banner) return; // Pagine senza banner (es. note-legali.html) restano semplicemente inattive qui
+
+    banner.hidden = false;
+
+    const btnAccetta = document.getElementById('cookieAccetta');
+    const btnRifiuta = document.getElementById('cookieRifiuta');
+
+    if (btnAccetta) {
+      btnAccetta.addEventListener('click', function () {
+        localStorage.setItem(COOKIE_CONSENSO_KEY, 'accettato');
+        banner.hidden = true;
+        caricaGoogleAnalytics();
+      });
+    }
+    if (btnRifiuta) {
+      btnRifiuta.addEventListener('click', function () {
+        localStorage.setItem(COOKIE_CONSENSO_KEY, 'rifiutato');
+        banner.hidden = true;
+      });
+    }
+  }
+
+  // ===========================================================
   // AVVIO
   // ===========================================================
 
@@ -227,5 +287,6 @@
     initRecensioniCarosello();
     initHamburger();
     initStickyReveal();
+    initCookieBanner();
   });
 })();

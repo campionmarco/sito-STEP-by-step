@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /note-legali.html
+
+Sitemap: https://stepbystepasd.vercel.app/sitemap.xml

@@ -845,3 +845,99 @@ section, .sezione-speciale {
   color: inherit;
   text-decoration: underline;
 }
+
+/* === Link Note Legali nel footer === */
+.footer-legale {
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+.footer-legale a {
+  color: #fff;
+  opacity: 0.8;
+  text-decoration: underline;
+}
+.footer-legale a:hover {
+  opacity: 1;
+}
+
+/* === Banner cookie/consenso Google Analytics === */
+.cookie-banner {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--blu);
+  color: #fff;
+  padding: 18px 22px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.25);
+  z-index: 300; /* Sopra il pulsante WhatsApp float (z-index 200) */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.cookie-banner p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1 1 260px;
+}
+.cookie-banner a {
+  color: var(--giallo);
+  text-decoration: underline;
+}
+.cookie-banner-azioni {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.btn-cookie-rifiuta {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.5);
+  color: #fff;
+}
+.btn-cookie-rifiuta:hover {
+  background: rgba(255,255,255,.1);
+}
+
+/* === Pagina Note Legali (note-legali.html) === */
+.pagina-legale {
+  max-width: 800px;
+}
+.pagina-legale h2 {
+  text-align: left;
+  margin-top: 40px;
+}
+.pagina-legale h2:first-child {
+  margin-top: 0;
+}
+.legale-blocco {
+  background: var(--chiaro);
+  border-radius: 8px;
+  padding: 22px 26px;
+}
+.legale-blocco p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.legale-blocco p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .cookie-banner-azioni {
+    justify-content: center;
+  }
+}

@@ -2,6 +2,7 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
+    <meta name="google-site-verification" content="mpM3U4F6Bamh52ac3A3U7Mr3P92HVp_C93EaenuEVEk" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -15,6 +16,16 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <!--
+      GOOGLE ANALYTICS: lo script NON viene caricato qui direttamente.
+      Viene iniettato da script.js SOLO dopo che l'utente accetta il banner
+      cookie, per rispettare la normativa privacy (consenso preventivo).
+      Sostituire il valore sotto con il proprio ID di misurazione GA4
+      (formato "G-XXXXXXXXXX", si trova nel pannello Google Analytics).
+    -->
+    <script>
+      window.GA_MEASUREMENT_ID = 'G-M2K0XS64FY';
+    </script>
   </head>
   <body>
     <header id="header">
@@ -692,7 +703,23 @@
       <p class="credito-sviluppatore">
         Sito realizzato da <a href="https://marcodigitalsolutions.carrd.co/" target="_blank">Marco Digital Solutions</a>
       </p>
+      <p class="footer-legale">
+        <a href="note-legali.html">Note Legali e Privacy</a>
+      </p>
     </footer>
+
+    <!-- COMPONENTE: Banner cookie/consenso Google Analytics (gestito in script.js) -->
+    <div id="cookieBanner" class="cookie-banner" hidden>
+      <p>
+        Questo sito utilizza Google Analytics in forma anonima per statistiche di
+        visita. Puoi accettare o rifiutare.
+        <a href="note-legali.html">Maggiori info</a>
+      </p>
+      <div class="cookie-banner-azioni">
+        <button id="cookieRifiuta" class="btn-small btn-cookie-rifiuta">Rifiuta</button>
+        <button id="cookieAccetta" class="btn-small">Accetta</button>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
