@@ -472,6 +472,12 @@ h2 {
   border-radius:20px;
   z-index:1; /* Sopra il trigger cliccabile dell'accordion */
 }
+.badge--inline {
+  position: static;
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+}
 .badge--novita {
   background:linear-gradient(135deg, var(--blu), var(--magenta));
   color:#fff;
@@ -480,6 +486,10 @@ h2 {
   background:#e8e4dc;
   color:#666;
   border:1px solid #ccc;
+}
+.badge--sold-out {
+  background: var(--magenta);
+  color: #fff;
 }
 
 .btn-small {
