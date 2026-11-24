@@ -1,3 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Variabili del tema (palette definita in tailwind.config.ts).
+   Il CSS sotto è la trascrizione fedele di style.css originale.
+   ============================================================ */
+:root {
+  --blu: theme('colors.blu');
+  --magenta: theme('colors.magenta.DEFAULT');
+  --magenta-scuro: theme('colors.magenta.scuro');
+  --verde: theme('colors.verde');
+  --giallo: theme('colors.giallo');
+  --chiaro: theme('colors.chiaro');
+  --turchese: theme('colors.turchese');
+  --arancio: theme('colors.arancio');
+  --bs-lilla: theme('colors.bs-lilla.DEFAULT');
+  --bs-lilla-chiaro: theme('colors.bs-lilla.chiaro');
+  --bs-grigio: theme('colors.bs-grigio');
+  /* Solo testo su sfondo chiaro — non sostituiscono i valori originali */
+  --giallo-testo: color-mix(in srgb, var(--giallo) 55%, #333);
+  --bs-lilla-chiaro-testo: color-mix(in srgb, var(--bs-lilla-chiaro) 65%, #333);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,33 +32,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
   color: #333;
-}
-
-/*:root {
-  --blu: #2E3A87;
-  --magenta-scuro: #D91A5C;
-  --verde: #7DB93E;
-  --giallo: #F2B705;
-  --chiaro: #FDF7F9;
-}*/
-
-:root {
-  --blu: #494495;
-  --magenta: #D03460;
-  --magenta-scuro: #8d3252fa;
-  --verde: #86BC25;
-  --giallo: #F4C123;
-  --chiaro: #FDF7F9;
-  --turchese: #4DB6AC;
-  --arancio: #FF5F00;
-  --bs-lilla: #8F8CBF;
-  --bs-lilla-chiaro: #A3A1C2;
-  --bs-grigio: #666666;
-  /* Solo testo su sfondo chiaro — non sostituiscono i valori originali */
-  --giallo-testo: color-mix(in srgb, var(--giallo) 55%, #333);
-  --bs-lilla-chiaro-testo: color-mix(in srgb, var(--bs-lilla-chiaro) 65%, #333);
 }
 
 body {
@@ -82,6 +82,7 @@ body {
   cursor: pointer;
   line-height: 1;
 }
+
 /* === Hero === */
 .hero {
   min-height: 100vh;
@@ -189,22 +190,6 @@ h2 {
   border-top:4px solid transparent;
 }
 
-.corso-card--divas-dance {
-  border-top-color: var(--magenta);
-}
-.corso-card--sit-fit-gym {
-  border-top-color: var(--verde);
-}
-.corso-card--dance-4-you {
-  border-top-color: var(--giallo);
-}
-.corso-card--you-and-me {
-  border-top-color: var(--turchese);
-}
-.corso-card--dance-4-all {
-  border-top-color: var(--blu);
-}
-
 .corso-card--principale .corso-sub {
   color: var(--blu);
 }
@@ -227,7 +212,6 @@ h2 {
 
 /* Modificatore: corso non ancora attivo (es. Dance 4 All) */
 .corso-card--in-arrivo {
-  border-top-color:#bbb;
   background:#f5f3ef;
   opacity:.92;
 }
@@ -254,15 +238,6 @@ h2 {
   max-width:600px;
   margin:0 auto;
   text-align:left;
-}
-.corso-card--franchising .titolo-balla-snella__balla {
-  color: var(--bs-lilla-chiaro);
-}
-.corso-card--franchising .titolo-balla-snella__e {
-  color: var(--magenta);
-}
-.corso-card--franchising .titolo-balla-snella__snella {
-  color: var(--bs-lilla);
 }
 .corso-card--franchising .corso-sub {
   color: var(--bs-grigio);
@@ -331,7 +306,6 @@ h2 {
   width:100%;
   gap:15px;
 }
-/*.corso-accordion-titles h3 { margin-bottom:4px; font-size:1.1rem; }*/
 .corso-accordion-titles {
   flex-grow: 1;
   text-align: left;
@@ -429,29 +403,6 @@ h2 {
   font-size: .85rem;
   font-weight: bold;
   margin-bottom: 0;
-}
-
-/* === Identità colore corsi (orari + titoli card) === */
-.orario-corso--divas-dance {
-  color: var(--magenta);
-}
-.orario-corso--sit-fit-gym {
-  color: var(--verde);
-}
-.orario-corso--dance-4-you {
-  color: var(--giallo-testo);
-}
-.orario-corso--you-and-me {
-  color: var(--turchese);
-}
-.orario-corso--dance-4-all {
-  color: var(--bs-grigio);
-}
-.orario-corso--balla-snella {
-  color: var(--bs-lilla);
-}
-.orario-corso--danza-benessere {
-  color: var(--arancio);
 }
 
 /* Evidenziazione temporanea quando si arriva dagli orari */
@@ -831,7 +782,7 @@ section, .sezione-speciale {
     border-top:1px solid rgba(255,255,255,.12);
   }
 
-  /* #navbar.nav-aperta viene aggiunta/rimossa dal JS al click sull'hamburger */
+  /* #navbar.nav-aperta viene aggiunta/rimossa al click sull'hamburger */
 #navbar.nav-aperta .nav-links {
   max-height: 500px;
 }
@@ -893,7 +844,7 @@ section, .sezione-speciale {
 
 .cookie-banner[hidden] {
   display: none;
-} 
+}
 
 .cookie-banner p {
   font-size: 0.85rem;
@@ -919,7 +870,7 @@ section, .sezione-speciale {
   background: rgba(255,255,255,.1);
 }
 
-/* === Pagina Note Legali (note-legali.html) === */
+/* === Pagina Note Legali === */
 .pagina-legale {
   max-width: 800px;
 }
